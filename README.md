@@ -42,28 +42,34 @@ This project demonstrates enterprise-grade practices such as idempotency, concur
 
 ---
 
-## Install Redis locally (without Docker)
+## Install Redis locally
 👉 Windows
-Open docker desktop and make it running 
-🚀 Step 1: Pull Redis image (first time only)
-- Open Command Prompt / Terminal:
-    docker pull redis
-This downloads Redis into Docker.
-▶️ Step 2: Run Redis container
-- docker run -d -p 6379:6379 --name redis redis
-✅ Step 3: Verify Redis is running
-- docker ps
+Open docker desktop and make it running
+- Step 1: Pull Redis image (first time only)
+-- Open Command Prompt / Terminal:
+--  docker pull redis
+-- This downloads Redis into Docker.
+- ▶️ Step 2: Run Redis container
+```bash
+docker run -d -p 6379:6379 --name redis redis
+```
+- ✅ Step 3: Verify Redis is running
+```bash
+    docker ps
+```    
 You should see something like:
 
-redis   redis   Up ...
+ redis   redis   Up ...
 
-🧪 Step 4: Test Redis (VERY IMPORTANT)
-    docker exec -it redis redis-cli ping
+- 🧪 Step 4: Test Redis (VERY IMPORTANT)
+    ```bash
+        docker exec -it redis redis-cli ping
+    ```
     👉 Expected output:
     PONG
     ✔️ This confirms Redis is working
 
-📦 Step 5: Install Predis in Symfony if not
+- 📦 Step 5: Install Predis in Symfony if not
 
 Go to your Symfony project folder:
 
@@ -71,7 +77,7 @@ composer require predis/predis
 
 👉 This lets PHP talk to Redis (no extension needed)
 
-⚙️ Step 6: Configure .env
+- ⚙️ Step 6: Configure .env
 
 Open .env and add:
 
