@@ -75,8 +75,9 @@ redis   redis   Up ...
 
 Go to your Symfony project folder:
 
-composer require predis/predis
-
+```bash
+    composer require predis/predis
+```
 👉 This lets PHP talk to Redis (no extension needed)
 
 - ⚙️ Step 6: Configure .env
