@@ -46,9 +46,11 @@ This project demonstrates enterprise-grade practices such as idempotency, concur
 👉 Windows
 Open docker desktop and make it running
 - Step 1: Pull Redis image (first time only)
--- Open Command Prompt / Terminal:
---  docker pull redis
--- This downloads Redis into Docker.
+Open Command Prompt / Terminal:
+```bash
+    docker pull redis
+```
+This downloads Redis into Docker.
 - ▶️ Step 2: Run Redis container
 ```bash
 docker run -d -p 6379:6379 --name redis redis
@@ -59,7 +61,7 @@ docker run -d -p 6379:6379 --name redis redis
 ```    
 You should see something like:
 
- redis   redis   Up ...
+redis   redis   Up ...
 
 - 🧪 Step 4: Test Redis (VERY IMPORTANT)
     ```bash
