@@ -1,0 +1,5 @@
+framework:
+    # lock: '%env(LOCK_DSN)%'
+    lock:
+        enabled: true
+        resource: '%env(LOCK_DSN)%'

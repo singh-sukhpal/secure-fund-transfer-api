@@ -1,0 +1,14 @@
+# config/packages/rate_limiter.yaml
+framework:
+  rate_limiter:
+    transfer:
+      policy: 'token_bucket'
+      limit: 20
+      rate: { interval: '1 minute', amount: 20 }
+
+    account:
+      policy: 'token_bucket'
+      limit: 5
+      rate:
+        interval: '10 minute'
+        amount: 5
