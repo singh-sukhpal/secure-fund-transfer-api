@@ -68,7 +68,9 @@ redis   redis   Up ...
         docker exec -it redis redis-cli ping
     ```
     👉 Expected output:
+    
     PONG
+
     ✔️ This confirms Redis is working
 
 - 📦 Step 5: Install Predis in Symfony if not
@@ -83,9 +85,9 @@ Go to your Symfony project folder:
 - ⚙️ Step 6: Configure .env
 
 Open .env and add:
-
-REDIS_URL=redis://127.0.0.1:6379
-
+```bash
+    REDIS_URL=redis://127.0.0.1:6379
+```
 ## 📦 Installation
 
 ```bash
