@@ -131,12 +131,10 @@ APP_DEBUG=1
 
 DATABASE_URL="mysql://db_user:db_pass@127.0.0.1:3306/db_name"
 
-# DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 
 # Redis for locks + cache (required if lock.yaml uses REDIS_URL)
 
-REDIS_URL=redis://{{url}}
-E.g: REDIS_URL=redis://127.0.0.1:6379
+REDIS_URL=redis://127.0.0.1:6379
 
 # Messenger (choose one)
 
@@ -147,6 +145,25 @@ MESSENGER_TRANSPORT_DSN=doctrine://default
 # MESSENGER_TRANSPORT_DSN=redis://127.0.0.1:6379/messages
 
 ```
+
+## 🐬 MySQL Setup
+
+### Option 1: Local MySQL
+
+1. Start MySQL server:
+
+- Windows (XAMPP/WAMP):
+  - Open XAMPP/WAMP → Start MySQL
+
+- macOS:
+  ```bash
+  brew services start mysql
+
+2. Create database:
+CREATE DATABASE paysera_db;
+
+3. Update .env:
+DATABASE_URL="mysql://root:password@127.0.0.1:3306/paysera_db"
 
 ## 🗄️ Database Setup
 
