@@ -297,6 +297,17 @@ All error responses follow the shape:
   "errors": { /* details */ }
 }
 ```
+---
+
+
+## 🧪 Testing
+
+The project includes **integration tests** to validate API behavior including transfers, validations, idempotency, and error handling.
+
+### ▶️ Run Tests
+
+```bash
+php bin/phpunit
 
 ---
 
