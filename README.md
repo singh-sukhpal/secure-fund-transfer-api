@@ -120,32 +120,6 @@ config/
 
 ```
 
----
-## ⚙️ Environment Configuration
-
-Create `.env` file:
-
-```env
-APP_ENV=dev
-APP_DEBUG=1
-
-DATABASE_URL="mysql://db_user:db_pass@127.0.0.1:3306/db_name"
-
-
-# Redis for locks + cache (required if lock.yaml uses REDIS_URL)
-
-REDIS_URL=redis://127.0.0.1:6379
-
-# Messenger (choose one)
-
-# Option 1: DB queue (simple)
-MESSENGER_TRANSPORT_DSN=doctrine://default
-
-# Option 2: Redis queue (recommended for production)
-# MESSENGER_TRANSPORT_DSN=redis://127.0.0.1:6379/messages
-
-```
-
 ## 🐬 MySQL Setup
 
 ### Option 1: Local MySQL
@@ -159,14 +133,14 @@ MESSENGER_TRANSPORT_DSN=doctrine://default
   ```bash
   brew services start mysql
 
-2. Create database:
-CREATE DATABASE paysera_db;
-
-3. Update .env:
-DATABASE_URL="mysql://root:password@127.0.0.1:3306/paysera_db"
 
 ## 🗄️ Database Setup
 
+1. Create database:
+CREATE DATABASE paysera_db;
+
+2. Update .env:
+DATABASE_URL="mysql://root:password@127.0.0.1:3306/paysera_db"
 Prefer migrations (keeps schema consistent):
 
 Windows PowerShell:
@@ -177,6 +151,15 @@ For a quick dev DB (sqlite):
 ```bash
 php bin/console doctrine:schema:create
 ```
+---
+
+## Environment Configuration
+Rename .env.example to .env
+Update env variables
+ - DATABASE_URL: Your Mysql Cobbection string (e.g mysql://root:@127.0.0.1:3306/paysera_db)
+ - REDIS_URL: Connection for caching (e.g redis://127.0.0.1:6379)
+ - MESSENGER_TRANSPORT_DSN: Used for the async funcd transfer queue
+ - LOCK_DSN: Used for preventing double spending via Redis locks
 
 ---
 
