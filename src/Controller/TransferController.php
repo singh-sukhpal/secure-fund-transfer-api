@@ -116,7 +116,7 @@ final class TransferController extends ApiController
             ], ApiMessages::TRANSFER_SUCCESS, Response::HTTP_OK);
         }
 
-        // optional: acquire short distributed lock to avoid races before enqueue
+        // Prevents same referenceId from concurrent processing
         $lock = $this->lockService->acquireTransferLock($dto->referenceId, (int)$dto->from, (int)$dto->to, 30);
         if ($lock === null) {
             throw new ApiException(ApiMessages::TRANSFER_FAILED, Response::HTTP_CONFLICT);

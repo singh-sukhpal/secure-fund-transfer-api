@@ -46,7 +46,7 @@ This project demonstrates enterprise-grade practices such as idempotency, concur
 👉 Windows
 Open docker desktop and make it running
 - Step 1: Pull Redis image (first time only)
-Open Command Prompt / Terminal:
+    Open Command Prompt / Terminal:
 ```bash
     docker pull redis
 ```
@@ -84,7 +84,7 @@ Go to your Symfony project folder:
 
 - ⚙️ Step 6: Configure .env
 
-Open .env and add:
+    Open .env and add:
 ```bash
     REDIS_URL=redis://127.0.0.1:6379
 ```
