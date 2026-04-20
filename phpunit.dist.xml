@@ -15,11 +15,28 @@
         <ini name="error_reporting" value="-1" />
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
+        <env name="KERNEL_CLASS" value="App\Kernel"/>
+        <env name="APP_DEBUG" value="1" force="true"/>
+        <env name="APP_SECRET" value="test_secret"/>
+        <env name="LOCK_DSN" value="redis://127.0.0.1:6379"/>
+        <env name="MESSENGER_TRANSPORT_DSN" value="redis://127.0.0.1:6379/messages"/>
+
+        <env name="DATABASE_URL" value="sqlite:///%kernel.project_dir%/var/payseratest.db"/>
+        <env name="REDIS_HOST" value="127.0.0.1" force="true"/>
+        <env name="REDIS_PORT" value="6379" force="true"/>
+        <env name="REDIS_CACHE_DB" value="1" force="true"/>
+        <env name="RATE_LIMITER_ENABLED" value="false" force="true"/>
+        <env name="MAILER_DSN" value="null://null" force="true"/>
+        <env name="TRUSTED_HOSTS" value="localhost,127.0.0.1" force="true"/>
+  
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
-            <directory>tests</directory>
+        <testsuite name="Unit Tests">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Integration Tests">
+            <directory>tests/Integration</directory>
         </testsuite>
     </testsuites>
 

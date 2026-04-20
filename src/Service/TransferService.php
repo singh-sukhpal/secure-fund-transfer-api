@@ -114,7 +114,7 @@ class TransferService
             if (bccomp($from->getBalance(), $amount, 2) === -1) {
                 throw new ApiException(
                     ApiMessages::INSUFFICIENT_FUNDS,
-                    Response::HTTP_CONFLICT,
+                    Response::HTTP_BAD_REQUEST,
                     [
                         'available' => $from->getBalance(),
                         'required'  => $amount

@@ -72,7 +72,7 @@ final class AccountController extends ApiController
             return $this->success([
                 'id' => $account->getId(),
                 'email' => $account->getEmail(),
-                'balance' => $account->getBalance(),
+                'balance' => number_format($account->getBalance(), 2, '.', ''),
             ], ApiMessages::ACCOUNT_CREATED, Response::HTTP_CREATED);
         }
 }

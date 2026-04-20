@@ -85,7 +85,7 @@ final class TransferController extends ApiController
         if (bccomp($fromAccount->getBalance(), $dto->amount, 2) === -1) {
             throw new ApiException(
                 ApiMessages::INSUFFICIENT_FUNDS,
-                Response::HTTP_CONFLICT,
+                Response::HTTP_BAD_REQUEST,
                 [
                     'available' => $fromAccount->getBalance(),
                     'required'  => $dto->amount
