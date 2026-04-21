@@ -156,9 +156,9 @@ php bin/console doctrine:schema:create
 ## Environment Configuration
 Rename .env.example to .env
 Update env variables
- - DATABASE_URL: Your Mysql Cobbection string (e.g mysql://root:@127.0.0.1:3306/paysera_db)
+ - DATABASE_URL: Your Mysql Connection string (e.g mysql://root:@127.0.0.1:3306/paysera_db)
  - REDIS_URL: Connection for caching (e.g redis://127.0.0.1:6379)
- - MESSENGER_TRANSPORT_DSN: Used for the async funcd transfer queue
+ - MESSENGER_TRANSPORT_DSN: Used for the async fund transfer queue
  - LOCK_DSN: Used for preventing double spending via Redis locks
 
 ---
@@ -321,6 +321,15 @@ php bin/phpunit
 ---
 
 ## 🔒 Key Design Decisions
+> Architectural Trade-off (Important Note)
+>
+> In the current implementation, the controller contains some coordination logic such as request validation flow, idempotency checks, and service orchestration.
+
+> In an ideal production-grade architecture, these responsibilities would be fully delegated to dedicated service layers to enforce stricter separation of concerns.
+
+> However, this structure was intentionally retained at submission time to ensure stability of integration tests and to avoid introducing breaking changes during final delivery.
+
+> The system already follows core architectural principles (DTO, Service, Repository separation, locking, idempotency, async processing), and this note reflects a known optimization area for future refactoring.
 
 ### ✅ Idempotency
 
@@ -411,7 +420,7 @@ curl -X POST http://127.0.0.1:8000/api/transfer-funds \
 This project was developed with assistance from **GitHub Copilot** and chatgpt.
 
 **Prompts & tasks used:**
-- How to handle request asynchronosly using event-driven architecture
+- How to handle request asynchronously using event-driven architecture
 - Idempotency & duplicate-reference conflict handling
 - Deterministic lock ordering to prevent deadlocks
 - Controller & repository patterns
