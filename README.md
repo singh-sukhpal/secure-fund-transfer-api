@@ -308,7 +308,7 @@ The project includes **integration tests** to validate API behavior including tr
 
 ```bash
 php bin/phpunit
-
+```
 ---
 
 ## Troubleshooting (common issues)
@@ -321,7 +321,7 @@ php bin/phpunit
 ---
 
 ## 🔒 Key Design Decisions
-> Architectural Trade-off (Important Note)
+# Architectural Trade-off (Important Note)
 >
 > In the current implementation, the controller contains some coordination logic such as request validation flow, idempotency checks, and service orchestration.
 
